@@ -1,27 +1,21 @@
 import React from 'react';
 
 import './UserItem.css';
-import UserItem from './UserItem';
 
 const UserItem = (props) => {
-    if (props.items.length === 0) {
-        return (
-        <div className='center'>
-            <h2>No users found.</h2>
-        </div>
-        );
-    }
-    return <ul>
-        {props.items.map((user) => {
-            return <UserItem 
-            key={user.id} 
-            id={user.id} 
-            image={user.image} 
-            name={user.name} 
-            placeCount={user.places}
-            />;
-        })}
-    </ul>
+    return (
+        <li className="user-item">
+            <div className="user-item__content">
+                <div className="user-item__image">
+                    <img src={props.image} alt={props.name}/>
+                </div>
+                <div className="user-item__info">
+                    <h2>{props.name}</h2>
+                    <h3>{props.placeCount} {props.placeCount === 1 ? 'Place' : 'Places'}</h3>
+                </div>
+            </div>
+        </li>
+    )
 };
 
 export default UserItem;
