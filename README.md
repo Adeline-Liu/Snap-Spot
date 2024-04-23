@@ -1,3 +1,21 @@
+# Snap Spot - A MERN Stack Geo-Tagging App
+
+Snap Spot is a personal project that serves as a testament to my journey through full-stack web development. The app uses the MERN stack to provide a platform for users to share and discover places through geotagged images. It is an ongoing work that reflects my evolving understanding of web technologies and my commitment to building functional, user-centered applications.
+
+## About the Project
+
+Snap Spot aims to encapsulate the features of modern social platforms while emphasizing the joy of discovering new places. It's designed to test and demonstrate my skills in both front-end and back-end development, including real-time data handling, responsive web design, and RESTful API architecture.
+
+## Features
+Geotagged Posts: Users can post images with geolocation data, sharing their favorite spots with others.
+CRUD Operations: Create, read, update, and delete functionality for managing user-contributed content.
+Image Storage: Integration with MongoDB GridFS for efficient image storage.
+
+## Tech Stack
+Front-End: React.js for a dynamic user interface
+Back-End: Node.js and Express.js for server-side logic
+Database: MongoDB for data management, with GridFS for image storage
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
