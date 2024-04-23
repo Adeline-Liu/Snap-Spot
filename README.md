@@ -8,12 +8,16 @@ Snap Spot aims to encapsulate the features of modern social platforms while emph
 
 ## Features
 Geotagged Posts: Users can post images with geolocation data, sharing their favorite spots with others.
+
 CRUD Operations: Create, read, update, and delete functionality for managing user-contributed content.
+
 Image Storage: Integration with MongoDB GridFS for efficient image storage.
 
 ## Tech Stack
 Front-End: React.js for a dynamic user interface
+
 Back-End: Node.js and Express.js for server-side logic
+
 Database: MongoDB for data management, with GridFS for image storage
 
 # Getting Started with Create React App
