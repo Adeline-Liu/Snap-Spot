@@ -25,13 +25,11 @@ const MainNavigation = (props) => {
     <React.Fragment>
       {drawerIsOpen ? <Backdrop onClick={closeDrawer} /> : null}
       {/* onece the drawer is open, render the backdrop component in the background to close the drawer for future use */}
-      {drawerIsOpen ? (
-        <SideDrawer>
-          <nav className="main-navigation__drawer-nav">
-            <NavLinks />
-          </nav>
-        </SideDrawer>
-      ) : null}
+      <SideDrawer show={drawerIsOpen} onClick={closeDrawer}>
+        <nav className="main-navigation__drawer-nav">
+          <NavLinks />
+        </nav>
+      </SideDrawer>
       <Mainheader className="main-navigation__menu-btn" onClick={openDrawer}>
         <button onClick={openDrawer}>
           {/* this button will trigger the drawer to open */}
