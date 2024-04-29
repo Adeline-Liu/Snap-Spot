@@ -26,9 +26,9 @@ const App = () => {
             {/* this Route will only be rendered if the path is exactly '/' */}
             <Users />
           </Route>
-          <Router path="/:userId/places" exact>
+          <Route path="/:userId/places" exact>
             <UserPlaces />
-          </Router>
+          </Route>
           <Route path="/places/new" exact={true}>
             <NewPlace />
           </Route>
