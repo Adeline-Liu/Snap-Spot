@@ -8,6 +8,7 @@ import {
 
 import Users from "./user/pages/Users";
 import NewPlace from "./places/pages/NewPlace";
+import UserPlaces from "./places/pages/UserPlaces";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 
 import "./App.css";
@@ -25,6 +26,9 @@ const App = () => {
             {/* this Route will only be rendered if the path is exactly '/' */}
             <Users />
           </Route>
+          <Router path="/:userID/places" exact>
+            <UserPlaces />
+          </Router>
           <Route path="/places/new" exact={true}>
             <NewPlace />
           </Route>

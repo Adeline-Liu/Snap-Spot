@@ -11,27 +11,30 @@ import Backdrop from "../UIElements/Backdrop";
 const MainNavigation = (props) => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
-  const openDrawer = () => {
+  const openDrawerHandler = () => {
     setDrawerIsOpen(true);
     // console.log("button pressed!");
   };
 
-  const closeDrawer = () => {
+  const closeDrawerHandler = () => {
     setDrawerIsOpen(false);
   };
 
   return (
     // only one root per component, so wrapped by <React.Fragment> to fulfill this requirement
     <React.Fragment>
-      {drawerIsOpen ? <Backdrop onClick={closeDrawer} /> : null}
+      {drawerIsOpen ? <Backdrop onClick={closeDrawerHandler} /> : null}
       {/* onece the drawer is open, render the backdrop component in the background to close the drawer for future use */}
-      <SideDrawer show={drawerIsOpen} onClick={closeDrawer}>
+      <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
         <nav className="main-navigation__drawer-nav">
           <NavLinks />
         </nav>
       </SideDrawer>
-      <Mainheader className="main-navigation__menu-btn" onClick={openDrawer}>
-        <button onClick={openDrawer}>
+      <Mainheader
+        className="main-navigation__menu-btn"
+        onClick={openDrawerHandler}
+      >
+        <button onClick={openDrawerHandler}>
           {/* this button will trigger the drawer to open */}
           <span />
           <span />
