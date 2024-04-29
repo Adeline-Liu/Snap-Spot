@@ -10,10 +10,10 @@ const PlaceList = (props) => {
     return (
       <div className="place-list center">
         <Card>
-          <h2>
-            No places found. Maybe create one?
+          <div className="place-list__no-places">
+            <h2>No places found. Maybe create one?</h2>
             <button>Share Place</button>
-          </h2>
+          </div>
         </Card>
       </div>
     );
