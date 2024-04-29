@@ -21,7 +21,7 @@ const PlaceList = (props) => {
 
   // otherwise render the items
   return (
-    <ul className="class-list">
+    <ul className="place-list">
       {props.items.map((place) => (
         // map every place in the list to a PlaceItem component
         <PlaceItem
