@@ -3,6 +3,7 @@ import React from "react";
 import "./PlaceList.css";
 import Card from "../../shared/components/UIElements/Card";
 import PlaceItem from "./PlaceItem";
+import Button from "../../shared/components/FormElements/Button";
 
 const PlaceList = (props) => {
   // if nothing in the list, then render share a new place button
@@ -12,7 +13,7 @@ const PlaceList = (props) => {
         <Card>
           <div className="place-list__no-places">
             <h2>No places found. Maybe create one?</h2>
-            <button>Share Place</button>
+            <Button>Share Place</Button>
           </div>
         </Card>
       </div>
