@@ -32,6 +32,12 @@ const ModalOverlay = (props) => {
     </div>
   );
   return ReactDom.createPortal(content, document.getElementById("modal-hook"));
+  // every component that is rendered using a portal needs to have a mounting point in the index.html file
+  // when you use ReactDom.createPortal(content, container)
+  // the container is a reference to a DOM element where the content will be rendered
+  // this container element must exist in the DOM before you use the portal
+  // typically you would create this container element in your index.html file
+  // so it's available when your React components need to use portals to render content
 };
 
 const Modal = (props) => {
