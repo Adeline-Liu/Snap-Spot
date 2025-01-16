@@ -30,12 +30,11 @@ const MainNavigation = (props) => {
           <NavLinks />
         </nav>
       </SideDrawer>
-      <Mainheader
-        className="main-navigation__menu-btn"
-        onClick={openDrawerHandler}
-      >
-        <button onClick={openDrawerHandler}>
-          {/* this button will trigger the drawer to open */}
+      <Mainheader>
+        <button
+          className="main-navigation__menu-btn"
+          onClick={openDrawerHandler}
+        >
           <span />
           <span />
           <span />
