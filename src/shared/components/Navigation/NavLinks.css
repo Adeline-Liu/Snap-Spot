@@ -48,7 +48,7 @@
     color: white;
   }
   
-  @media (min-width: 768px) {
+  @media (min-width: 890px) {
     .nav-links {
       flex-direction: row;
     }
@@ -75,7 +75,7 @@
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 890px) {
     .nav-links li:last-child a,
     .nav-links li:last-child button {
       margin-right: 25px; 
