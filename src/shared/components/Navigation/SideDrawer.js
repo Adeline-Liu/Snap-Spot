@@ -13,7 +13,7 @@ const SideDrawer = (props) => {
       //   this prop controls whether the component should be shown (true) or hidden (false)
       timeout={350}
       classNames="slide-in-left"
-      mountOnE
+      mountOnEnter
       unmountOnExit
     >
       <aside className="side-drawer" onClick={props.onClick}>
