@@ -16,7 +16,7 @@
     margin-top: 5rem;
   }
   
-  @media (min-width: 768px) {
+  @media (min-width: 890px) {
     .main-header {
       justify-content: space-between;
     }

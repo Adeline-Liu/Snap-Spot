@@ -13,7 +13,7 @@ const PlaceList = (props) => {
         <Card>
           <div className="place-list__no-places">
             <h2>No places found. Maybe create one?</h2>
-            <Button>Share Place</Button>
+            <Button to="/places/new">Share Place</Button>
           </div>
         </Card>
       </div>
