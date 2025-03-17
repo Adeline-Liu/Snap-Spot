@@ -14,7 +14,7 @@ app.use("/api/places", placesRoutes); // use placesRoutes as middleware, all rou
 app.use((error, req, res, next) => {
   // this middleware function will be executed for any request that has an error
   if (res.headerSent) {
-    return next(error);
+    return next(error); // if the response was already sent, the error is passed to another potential error handler if any
   }
   res.status(error.code || 500);
   res.json({ message: error.message || "An unknown error occurred!" });
