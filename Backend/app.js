@@ -9,6 +9,8 @@ const app = express(); // create an Express application instance
 // res (response) → The response object to send data back to the client
 // next() → Calls the next middleware in the stack
 
+app.use(bodyParser.json()); // use body-parser as middleware to parse incoming request bodies in a middleware before your handlers, available under the req.body property
+
 app.use("/api/places", placesRoutes); // use placesRoutes as middleware, all routes inside placesRoutes are prefixed with /api/places
 
 app.use((error, req, res, next) => {

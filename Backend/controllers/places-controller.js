@@ -1,3 +1,5 @@
+const { v4: uuidv4 } = require("uuid");
+
 const HttpError = require("../models/http-error");
 
 const DUMMY_PLACES = [
@@ -43,5 +45,25 @@ const getPlaceByUserId = (req, res, next) => {
   res.json({ place });
 };
 
+// get requests don't have a body, but post requests do
+
+const createPlace = (req, res, next) => {
+  // get the data from the request body and store it in variables
+  const { title, description, coordinates, address, creator } = req.body;
+  const createdPlace = {
+    id: uuidv4(),
+    title,
+    description,
+    location: coordinates,
+    address,
+    creator,
+  };
+
+  DUMMY_PLACES.push(createdPlace); // add the new place at the end, unshift() would add it at the beginning
+
+  res.status(201).json({ place: createdPlace });
+};
+
 exports.getPlaceById = getPlaceById;
 exports.getPlaceByUserId = getPlaceByUserId;
+exports.createPlace = createPlace;
