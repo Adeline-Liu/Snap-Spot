@@ -3,6 +3,7 @@ const bodyParser = require("body-parser"); // import body-parser
 const HttpError = require("./models/http-error"); // import HttpError from http-error.js
 
 const placesRoutes = require("./routes/places-routes"); // import places-routes.js
+const usersRoutes = require("./routes/users-routes"); // import users-routes.js
 
 const app = express(); // create an Express application instance
 
@@ -13,6 +14,7 @@ const app = express(); // create an Express application instance
 app.use(bodyParser.json()); // use body-parser as middleware to parse incoming request bodies in a middleware before your handlers, available under the req.body property
 
 app.use("/api/places", placesRoutes); // use placesRoutes as middleware, all routes inside placesRoutes are prefixed with /api/places
+app.use("/api/users", usersRoutes); // use usersRoutes as middleware, all routes inside usersRoutes are prefixed with /api/users
 
 // this middleware function only will be executed when no response was sent from any of the previous routes
 app.use((req, res, next) => {
