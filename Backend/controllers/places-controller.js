@@ -1,6 +1,8 @@
 const { v4: uuidv4 } = require("uuid");
+const { validationResult } = require("express-validator");
 
 const HttpError = require("../models/http-error");
+const getCoordsForAddress = require("../util/location");
 
 let DUMMY_PLACES = [
   {
@@ -47,9 +49,30 @@ const getPlacesByUserId = (req, res, next) => {
 
 // get requests don't have a body, but post requests do
 
-const createPlace = (req, res, next) => {
+const createPlace = async (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    // throwing exceptions in async function wouldn't work correctly
+    return next(
+      new HttpError(
+        "Some of the inputs are invalid. Please double-check your data and try again.",
+        422
+      )
+    );
+    // return res.status(422).json({ errors: errors.array() });
+  }
+
   // get the data from the request body and store it in variables
-  const { title, description, coordinates, address, creator } = req.body;
+  const { title, description, address, creator } = req.body;
+
+  let coordinates;
+  try {
+    coordinates = await getCoordsForAddress(address);
+  } catch (err) {
+    return next(err);
+  }
+
   const createdPlace = {
     id: uuidv4(),
     title,
@@ -66,6 +89,16 @@ const createPlace = (req, res, next) => {
 
 // patch requests have a body
 const updatePlace = (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    // console.log(errors);
+    throw new HttpError(
+      "Some of the inputs are invalid. Please double-check your data and try again.",
+      422
+    );
+  }
+
   const { title, description } = req.body;
   const placeId = req.params.pid;
 
@@ -82,6 +115,11 @@ const updatePlace = (req, res, next) => {
 
 const deletePlace = (req, res, next) => {
   const placeId = req.params.pid;
+
+  if (!DUMMY_PLACES.find((p) => p.id === placeId)) {
+    throw new HttpError("Could not find a place for this ID.", 404);
+  }
+
   // filter gives a new array, it doesn't change the original array
   DUMMY_PLACES = DUMMY_PLACES.filter((p) => p.id !== placeId);
   // if filter returns true, the element is kept, if it returns false, the element is removed
